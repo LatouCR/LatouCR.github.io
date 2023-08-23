@@ -45,13 +45,34 @@ form.addEventListener("submit", async ev =>{
                 cantidad_personas,
                 nota
             });    
-        alert("Comida almacenada correctamente!");
+            Toastify({
+                text: "Reservación realizada con éxito",
+                className: "info",
+                style: {
+                  background: "green",
+                }
+              }).showToast();
         limpiar();        
  
     }catch (error){
-        alert("Error!. Detalle: " + error);
+        Toastify({
+            text: "Reservación no realizada",
+            className: "info",
+            style: {
+              background: "red",
+            }
+          }).showToast();
     }
 });
+
+var limpiar = function(){
+    form.nombre.value = "";
+    form.correo.value = "";
+    form.fecha.value = "";
+    form.hora.value = "";
+    form.cantidad.value = "";
+    form.nota.value = "";
+}
 
 
 
